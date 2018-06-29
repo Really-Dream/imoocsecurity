@@ -1,10 +1,12 @@
 package com.dream.dto;
 
+import com.dream.validator.MyConstraint;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import java.util.Date;
 
 /**
@@ -18,11 +20,13 @@ public class User {
 
     private String id;
 
+    @MyConstraint
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "密码不能为空")
     private String password;
 
+    @Past(message = "生日日期不能大于当前时间")
     private Date birthday;
 
     @JsonView(UserSimpleView.class)
