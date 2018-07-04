@@ -83,12 +83,14 @@ public class UserController {
     @GetMapping("/{id:\\d+}")
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable(name = "id") String id){
-        throw new UserNotExistException(id);
+//        throw new UserNotExistException(id);
+//        throw new RuntimeException(id);
 
-//        System.out.println(id);
-//        User user = new User();
-//        user.setUsername("dream");
-//        return user;
+        System.out.println("进入getInfo服务");
+        User user = new User();
+        user.setId(id);
+        user.setUsername("dream");
+        return user;
     }
 
     @DeleteMapping("/{id:\\d+}")

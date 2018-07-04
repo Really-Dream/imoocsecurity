@@ -13,6 +13,7 @@ import java.util.Map;
 /**
  * Created by H.J
  * 2018/7/4
+ * 会在Interceptor之前处理异常
  */
 @ControllerAdvice
 public class ControllerExceptionHandler {
