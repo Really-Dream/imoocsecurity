@@ -2,6 +2,7 @@ package com.dream.web.controller;
 
 import com.dream.dto.User;
 import com.dream.dto.UserQueryCondition;
+import com.dream.exception.UserNotExistException;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
@@ -26,9 +27,9 @@ public class UserController {
     @PostMapping
     public User create(@Valid @RequestBody User user, BindingResult errors){
 
-        if(errors.hasErrors()){
-            errors.getAllErrors().stream().forEach(error -> System.out.println(error.getDefaultMessage()));
-        }
+//        if(errors.hasErrors()){
+//            errors.getAllErrors().stream().forEach(error -> System.out.println(error.getDefaultMessage()));
+//        }
 
         System.out.println(user.getId());
         System.out.println(user.getUsername());
@@ -82,10 +83,12 @@ public class UserController {
     @GetMapping("/{id:\\d+}")
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable(name = "id") String id){
-        System.out.println(id);
-        User user = new User();
-        user.setUsername("dream");
-        return user;
+        throw new UserNotExistException(id);
+
+//        System.out.println(id);
+//        User user = new User();
+//        user.setUsername("dream");
+//        return user;
     }
 
     @DeleteMapping("/{id:\\d+}")
