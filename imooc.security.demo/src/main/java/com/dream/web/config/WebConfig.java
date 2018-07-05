@@ -19,7 +19,7 @@ import java.util.List;
  * 使用此方法注入过滤器
  * 可设置过滤器对那些URL起作用
  */
-@Configuration
+//@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Autowired
@@ -30,7 +30,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(timeInterceptor);
     }
 
-    @Bean
+//    @Bean
     public FilterRegistrationBean timeFilter(){
         FilterRegistrationBean registrationBean = new FilterRegistrationBean();
 
