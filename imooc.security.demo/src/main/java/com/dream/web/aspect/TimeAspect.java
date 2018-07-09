@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class TimeAspect {
 
-//    @Around("execution(* com.dream.web.controller.UserController.*(..))")
+    @Around("execution(* com.dream.web.controller.UserController.*(..))")
     public Object handleControllerMethod(ProceedingJoinPoint pjp) throws Throwable{
 
         System.out.println("time aspect start");
