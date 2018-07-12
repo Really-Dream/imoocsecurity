@@ -14,3 +14,8 @@ spring:
 server:
   port: 80
 
+dream:
+  security:
+    browser:
+     loginPage: /dream-signIn.html
+
