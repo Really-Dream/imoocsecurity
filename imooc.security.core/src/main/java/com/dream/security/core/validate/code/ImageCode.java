@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
  */
 @Data
 public class ImageCode {
+
     private BufferedImage image;
 
     private String code;
@@ -27,5 +28,9 @@ public class ImageCode {
         this.image = image;
         this.code = code;
         this.expireTime = LocalDateTime.now().plusSeconds(expireTime);
+    }
+
+    public boolean isExpried() {
+        return LocalDateTime.now().isAfter(expireTime);
     }
 }
