@@ -18,4 +18,9 @@ dream:
   security:
     browser:
      loginPage: /dream-signIn.html
+    code:
+      image:
+        legth: 6
+        width: 100
+        url: /user,/user/*
 
