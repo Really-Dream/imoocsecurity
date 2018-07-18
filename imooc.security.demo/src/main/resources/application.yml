@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://120.77.35.124:3306/spring-security?useUnicode=true&characterEncoding=utf-8&useSSL=false
-    username: hj
-    password: huangjie
+    url: jdbc:mysql://localhost:3306/spring-security?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: root
   session:
     store-type: none
 
@@ -17,7 +17,7 @@ server:
 dream:
   security:
     browser:
-     loginPage: /dream-signIn.html
+     loginPage: /dream-signIn1.html
     code:
       image:
         length: 6

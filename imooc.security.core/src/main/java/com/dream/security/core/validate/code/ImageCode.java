@@ -10,27 +10,21 @@ import java.time.LocalDateTime;
  * 2018/7/12
  */
 @Data
-public class ImageCode {
+public class ImageCode extends ValidateCode {
 
     private BufferedImage image;
 
-    private String code;
-
-    private LocalDateTime expireTime;
-
     public ImageCode(BufferedImage image,String code,LocalDateTime expireTime){
+        super(code,expireTime);
         this.image = image;
-        this.code = code;
-        this.expireTime = expireTime;
     }
 
     public ImageCode(BufferedImage image,String code,int expireTime){
+        super(code,LocalDateTime.now().plusSeconds(expireTime));
         this.image = image;
-        this.code = code;
-        this.expireTime = LocalDateTime.now().plusSeconds(expireTime);
     }
 
     public boolean isExpried() {
-        return LocalDateTime.now().isAfter(expireTime);
+        return LocalDateTime.now().isAfter(super.getExpireTime());
     }
 }
