@@ -65,6 +65,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/authentication/require")
                     .loginProcessingUrl("/authentication/form")
+                    .loginProcessingUrl("/authentication/mobile")
                     .successHandler(imoocAuthenticationSuccessHandler)
                     .failureHandler(imoocAuthenctiationFailureHandler)
                     .and()
@@ -76,7 +77,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/authentication/require",
                         securityProperties.getBrowser().getLoginPage()
-                        ,"/code/image")
+                        ,"/code/*")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
